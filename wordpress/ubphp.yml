@@ -1,0 +1,17 @@
+- name: Enable PHP 7.3
+  shell: "apt-config-manager --enable remi-php73"
+  when: php_version == "7.3"
+
+- name: Enable PHP 7.4
+  shell: "apt-config-manager --enable remi-php74"
+  when: php_version == "7.4"
+
+- name: Install PHP
+  package:
+    name: php
+    state: latest
+    
+- name: Install PHP-MySQL
+  package:
+    name: php-mysql
+    state: latest
