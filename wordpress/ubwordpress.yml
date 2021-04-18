@@ -20,24 +20,24 @@
     state: latest
 # - name: 
 #   shell:
-  # cd /var/www/html/  
-- name: Move files to /var/www/html/
-  command: cp -rf . "/var/www/html/"
-  args: 
-    chdir: "/tmp/wordpress/"
-- name: Remove temporary dir
-  file:
-    path: "/tmp/wordpress/"
-    state: absent
-- name: Remove index.html file
-  file: 
-    path: "/var/www/html/index.html"
-    state: absent
-- name: "UFW - Allow HTTP on port {{ http_port }}"
-  ufw: 
-    rule: allow
-    port: "80"
-    proto: tcp
+#   # cd /var/www/html/  
+# - name: Move files to /var/www/html/
+#   command: cp -rf . "/var/www/html/"
+#   args: 
+#     chdir: "/tmp/wordpress/"
+# - name: Remove temporary dir
+#   file:
+#     path: "/tmp/wordpress/"
+#     state: absent
+# - name: Remove index.html file
+#   file: 
+#     path: "/var/www/html/index.html"
+#     state: absent
+# - name: "UFW - Allow HTTP on port {{ http_port }}"
+#   ufw: 
+#     rule: allow
+#     port: "80"
+#     proto: tcp
 - name: Set ownership
   file:
     path: "/var/www/"
